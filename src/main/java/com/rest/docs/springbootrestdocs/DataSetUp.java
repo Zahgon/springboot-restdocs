@@ -17,21 +17,11 @@ import org.springframework.stereotype.Component;
 public class DataSetUp implements ApplicationRunner {
 
     private final MemberRepository memberRepository;
+
     private final OrderRepository orderRepository;
 
     @Override
     public void run(ApplicationArguments args) {
-        final List<Member> members = new ArrayList<>();
-        members.add(new Member("yun@asd.com", "yun"));
-        members.add(new Member("wan@asd.com", "wan"));
-        members.add(new Member("jay@asd.com", "jay"));
-        members.add(new Member("joo@asd.com", "joo"));
-        memberRepository.saveAll(members);
-
-        final List<Order> orders = new ArrayList<>();
-        orders.add(new Order(1L, BigDecimal.TEN));
-        orders.add(new Order(2L, BigDecimal.TEN));
-        orders.add(new Order(3L, BigDecimal.TEN));
-        orderRepository.saveAll(orders);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

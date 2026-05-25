@@ -7,7 +7,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class RestdocsApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(RestdocsApplication.class, args);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
-
 }

@@ -30,50 +30,28 @@ public class MemberApi {
 
     @GetMapping("/{id}")
     public MemberResponse getMember(@PathVariable Long id) {
-        return new MemberResponse(memberRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("NotFound")));
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @PutMapping("/{id}")
-    public void modifyMember(
-        @PathVariable final Long id,
-        @RequestBody @Valid final MemberModificationRequest dto
-    ) {
-        final Member member = memberRepository.findById(id).get();
-        member.updateStatus(dto.getStatus());
+    public void modifyMember(@PathVariable final Long id, @RequestBody @Valid final MemberModificationRequest dto) {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @GetMapping
-    public PageResponse<MemberResponse> getMembers(
-        @PageableDefault(sort = "id", direction = Direction.DESC) Pageable pageable
-    ) {
-        return new PageResponse<>(memberRepository.findAll(pageable).map(MemberResponse::new));
+    public PageResponse<MemberResponse> getMembers(@PageableDefault(sort = "id", direction = Direction.DESC) Pageable pageable) {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @PostMapping
     public void registerMember(@RequestBody @Valid MemberRegistrationRequest dto) {
-        memberRepository.save(new Member(dto.getEmail(), dto.getName()));
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
-    @ApiOperation(
-        value = "members 조회",
-        response = Member.class,
-        responseContainer = "List"
-    )
-    @ApiResponses(
-        value = {
-            @ApiResponse(code = 200, message = "응답 성공"),
-            @ApiResponse(code = 400, message = "유효하지 하지 않은 입력")
-        }
-    )
+    @ApiOperation(value = "members 조회", response = Member.class, responseContainer = "List")
+    @ApiResponses(value = { @ApiResponse(code = 200, message = "응답 성공"), @ApiResponse(code = 400, message = "유효하지 하지 않은 입력") })
     @GetMapping("/swagger")
-    public List<Member> getMember2(
-        @ApiParam(name = "page", value = "page", defaultValue = "0")
-        @RequestParam Integer page,
-        @ApiParam(name = "size", value = "size", defaultValue = "10")
-        @RequestParam Integer size
-    ) {
-        final List<Member> members = new ArrayList<>();
-        members.add(new Member("yun@asd.com", "yun"));
-        return members;
+    public List<Member> getMember2(@ApiParam(name = "page", value = "page", defaultValue = "0") @RequestParam Integer page, @ApiParam(name = "size", value = "size", defaultValue = "10") @RequestParam Integer size) {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

@@ -10,10 +10,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/orders")
 @AllArgsConstructor
 public class OrderApi {
+
     private final OrderRepository orderRepository;
 
     @GetMapping("/{id}")
     public Order getOrder(@PathVariable Long id) {
-        return orderRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("NotFound"));
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

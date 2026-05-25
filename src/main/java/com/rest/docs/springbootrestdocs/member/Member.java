@@ -49,7 +49,7 @@ public class Member {
         this.status = MemberStatus.NORMAL;
     }
 
-    public void updateStatus(final MemberStatus status){
-        this.status = status;
+    public void updateStatus(final MemberStatus status) {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

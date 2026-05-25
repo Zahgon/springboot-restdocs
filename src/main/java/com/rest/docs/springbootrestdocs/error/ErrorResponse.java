@@ -14,9 +14,13 @@ import org.springframework.validation.BindingResult;
 public class ErrorResponse {
 
     private String message;
+
     private int status;
+
     private List<FieldError> errors;
+
     private String code;
+
     private LocalDateTime timestamp;
 
     private ErrorResponse(final ErrorCode code, final List<FieldError> errors) {
@@ -36,18 +40,20 @@ public class ErrorResponse {
     }
 
     public static ErrorResponse of(final ErrorCode code, final BindingResult bindingResult) {
-        return new ErrorResponse(code, FieldError.of(bindingResult));
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public static ErrorResponse of(final ErrorCode code) {
-        return new ErrorResponse(code);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Getter
     public static class FieldError {
 
         private String field;
+
         private String value;
+
         private String reason;
 
         private FieldError(final String field, final String value, final String reason) {
@@ -57,19 +63,12 @@ public class ErrorResponse {
         }
 
         public static List<FieldError> of(final String field, final String value, final String reason) {
-            List<FieldError> fieldErrors = new ArrayList<>();
-            fieldErrors.add(new FieldError(field, value, reason));
-            return fieldErrors;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         private static List<FieldError> of(final BindingResult bindingResult) {
             final List<org.springframework.validation.FieldError> fieldErrors = bindingResult.getFieldErrors();
-            return fieldErrors.stream()
-                .map(error -> new FieldError(
-                    error.getField(),
-                    error.getRejectedValue() == null ? "" : error.getRejectedValue().toString(),
-                    error.getDefaultMessage()))
-                .collect(Collectors.toList());
+            return fieldErrors.stream().map(error -> new FieldError(error.getField(), error.getRejectedValue() == null ? "" : error.getRejectedValue().toString(), error.getDefaultMessage())).collect(Collectors.toList());
         }
     }
 }
